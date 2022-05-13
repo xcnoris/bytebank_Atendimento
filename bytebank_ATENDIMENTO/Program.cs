@@ -163,16 +163,16 @@ void RemoverConta()
 	Console.WriteLine("===============================");
 	Console.WriteLine("\n");
 	Console.Write("Informe o número da conta: ");
-	string numeroConta2 = Console.ReadLine();
-	ContaCorrente conta3 = new ContaCorrente(1);
+	string numeroConta = Console.ReadLine();
+	ContaCorrente conta = new ContaCorrente(1);
 	foreach (ContaCorrente item2 in listaDeContas)
 	{
-		if (item2.Conta.Equals(numeroConta2))
+		if (item2.Conta.Equals(numeroConta))
 		{
-			conta3 = item2;
+			conta = item2;
 		}
 	}
-	listaDeContas.Remove(conta3);
+	listaDeContas.Remove(conta);
 	Console.WriteLine("... Conta removida da lista! ...");
 	Console.ReadKey();
 }
