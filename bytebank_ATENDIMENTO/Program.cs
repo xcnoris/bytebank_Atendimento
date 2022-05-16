@@ -64,18 +64,18 @@ void CadastrarConta()
 	Console.WriteLine("===   CADASTRO DE CONTAS    ===");
 	Console.WriteLine("===============================");
 	Console.WriteLine("\n");
-	ContaCorrente conta2 = new ContaCorrente(1);
+	ContaCorrente conta = new ContaCorrente(1);
 	Console.WriteLine("===  Informe dados da conta  ===");
-	Console.WriteLine("Número da Conta: " + conta2.Conta);
+	Console.WriteLine("Número da Conta: " + conta.Conta);
 	Console.Write("Informe Saldo: ");
-	conta2.Saldo = double.Parse(Console.ReadLine());
+	conta.Saldo = double.Parse(Console.ReadLine());
 	Console.Write("Informe Titular: ");
-	conta2.Titular.Nome = Console.ReadLine();
+	conta.Titular.Nome = Console.ReadLine();
 	Console.Write("Informe CPF do Titular: ");
-	conta2.Titular.Cpf = Console.ReadLine();
+	conta.Titular.Cpf = Console.ReadLine();
 	Console.Write("Informe Profissão do Titular: ");
-	conta2.Titular.Profissao = Console.ReadLine();
-	listaDeContas.Add(conta2);
+	conta.Titular.Profissao = Console.ReadLine();
+	listaDeContas.Add(conta);
 	Console.WriteLine("... Conta cadastrada com sucesso! ...");
 	Console.ReadKey();
 }
