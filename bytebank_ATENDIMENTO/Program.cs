@@ -81,11 +81,41 @@ void CadastrarConta()
 }
 ContaCorrente ConsultaPorCPFTitular(string cpf)
 {
-      return listaDeContas.Where((ContaCorrente conta) => conta.Titular.Cpf == cpf).SingleOrDefault();
+	ContaCorrente conta=null;
+    foreach (var item in listaDeContas)
+    {
+        if (item.Titular.Cpf.Equals(cpf))
+        {
+			conta = item;
+        }     
+    }
+    if (conta!=null)
+    {
+		return conta;
+    }
+    else
+    {
+		return null;
+    }
 }
 ContaCorrente ConsultaPorNumeroConta(string numeroConta){
-	
-	return listaDeContas.Where((ContaCorrente conta) => conta.Conta == numeroConta).SingleOrDefault();
+
+	ContaCorrente conta = null;
+	foreach (var item in listaDeContas)
+	{
+		if (item.Conta.Equals(numeroConta))
+		{
+			conta = item;
+		}
+	}
+	if (conta != null)
+	{
+		return conta;
+	}
+	else
+	{
+		return null;
+	}
 }
 static void EncerrarAplicacao()
 {
