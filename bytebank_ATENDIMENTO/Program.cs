@@ -1,7 +1,5 @@
-﻿using bytebank.Modelos.Conta;
-using bytebank_ATENDIMENTO.bytebank.Atendimento;
+﻿using bytebank_ATENDIMENTO.bytebank.Atendimento;
 using bytebank_ATENDIMENTO.bytebank.Exceptions;
-using bytebank_ATENDIMENTO.bytebank.Util;
 
 Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
 Console.WriteLine("\n\n");
@@ -10,8 +8,8 @@ try
 {
    new ByteBankAtendimento(int.Parse(Console.ReadLine())).AtendimentoCliente();
 }
-catch (ByteBankException exception)
+catch (Exception exception)
 {
     Console.WriteLine(exception.Message);
-    
+    Console.ReadKey();
 }
