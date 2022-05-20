@@ -1,6 +1,6 @@
 ﻿namespace bytebank.Modelos.Conta
 {
-	public class ContaCorrente
+	public class ContaCorrente : IComparable<ContaCorrente>
 	{
 		private int _numero_agencia;
 
@@ -102,6 +102,38 @@
 			Conta = Guid.NewGuid().ToString().Substring(0, 8);
 			Titular = new Cliente();
 			TotalDeContasCriadas++;
+		}
+
+		public ContaCorrente(int numero_agencia, string conta)
+		{
+			Numero_agencia = numero_agencia;
+			Conta = conta;
+			Titular = new Cliente();
+			TotalDeContasCriadas += 1;
+
+		}
+
+		public override bool Equals(object obj)
+		{
+			ContaCorrente outraConta = obj as ContaCorrente;
+
+			if (outraConta == null)
+			{
+				return false;
+			}
+			return Numero_agencia == outraConta.Numero_agencia && Conta.Equals(outraConta.Conta);
+		}
+
+		public int CompareTo(ContaCorrente? outro)
+		{
+			if (outro == null)
+			{
+				return 1;
+			}
+			else
+			{
+				return this.Numero_agencia.CompareTo(outro.Numero_agencia);
+			}
 		}
 
 		public override string ToString()
