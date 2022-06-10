@@ -147,7 +147,17 @@ namespace bytebank_ATENDIMENTO.bytebank.Atendimento
             Console.WriteLine("===============================");
             Console.WriteLine("\n");
             Console.Write("Informe o número da conta: ");
-            string numeroConta = Console.ReadLine();
+            try
+            {
+                string numeroConta = Console.ReadLine();
+            }
+            catch (Exception excecao)
+            {
+
+                throw new ByteBankException(excecao.Message);
+                Console.ReadKey();
+            }
+
             ContaCorrente conta = null;
             foreach (ContaCorrente item in _listaDeContas)
             {
