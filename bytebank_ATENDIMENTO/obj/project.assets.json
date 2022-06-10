@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\temp\\curso\\curso_c_collections\\Aula02\\bytebank_ATENDIMENTO\\bytebank_ATENDIMENTO\\bytebank_ATENDIMENTO.csproj",
+      "projectUniqueName": "C:\\temp\\curso\\curso_c_collections\\Aula02\\bytebank_ATENDIMENTO_BKP02\\bytebank_ATENDIMENTO\\bytebank_ATENDIMENTO.csproj",
       "projectName": "bytebank_ATENDIMENTO",
-      "projectPath": "C:\\temp\\curso\\curso_c_collections\\Aula02\\bytebank_ATENDIMENTO\\bytebank_ATENDIMENTO\\bytebank_ATENDIMENTO.csproj",
+      "projectPath": "C:\\temp\\curso\\curso_c_collections\\Aula02\\bytebank_ATENDIMENTO_BKP02\\bytebank_ATENDIMENTO\\bytebank_ATENDIMENTO.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\temp\\curso\\curso_c_collections\\Aula02\\bytebank_ATENDIMENTO\\bytebank_ATENDIMENTO\\obj\\",
+      "outputPath": "C:\\temp\\curso\\curso_c_collections\\Aula02\\bytebank_ATENDIMENTO_BKP02\\bytebank_ATENDIMENTO\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",

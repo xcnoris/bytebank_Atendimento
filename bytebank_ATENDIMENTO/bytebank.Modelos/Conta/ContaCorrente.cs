@@ -115,11 +115,26 @@
         {
             Numero_agencia = numero_agencia;
             Conta = conta;
+            Titular = new Cliente();
             TotalDeContasCriadas += 1;
 
         }
 
         public static int TotalDeContasCriadas { get; set; }
+
+        //public override bool Equals(object? conta)
+        //{
+        //    ContaCorrente outroConta = conta as ContaCorrente;
+            
+        //    if (outroConta == null)
+        //    {
+        //        return false;
+        //    }
+
+        //    return Numero_agencia == outroConta.Numero_agencia && 
+        //        Conta.Equals(outroConta.Conta);
+        //}
+
 
     }
 }
