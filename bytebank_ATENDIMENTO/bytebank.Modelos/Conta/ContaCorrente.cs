@@ -1,162 +1,161 @@
-﻿namespace bytebank.Modelos.Conta
-{
-    public class ContaCorrente:IComparable<ContaCorrente>
-    {     
-       
-        public Cliente Titular{get;set;}
-        public string Nome_Agencia{ get; set; }
+﻿namespace bytebank.Modelos.Conta;
 
-        private int _numero_agencia;
-        public int Numero_agencia
+public class ContaCorrente:IComparable<ContaCorrente>
+{     
+   
+    public Cliente Titular{get;set;}
+    public string Nome_Agencia{ get; set; }
+
+    private int _numero_agencia;
+    public int Numero_agencia
+    {
+        get
         {
-            get
-            {
-                return _numero_agencia;
-            }
-            set
-            {
-                if(value <= 0)
-                {
-
-                }
-                else
-                {
-                    _numero_agencia = value;
-                }
-            }
-        
+            return _numero_agencia;
         }
-
-        private string _conta;
-        public string Conta
+        set
         {
-            get
+            if(value <= 0)
             {
-                return _conta;
-            }
-            set
-            {
-                if(value == null)
-                {
-                    return;
-                }
-                else
-                {
-                    _conta = value;
-                }
-            }
-        }
 
-        private double saldo;
-        public double Saldo
-        {
-            get
-            {
-                return saldo;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    return;
-                }
-                else
-                {
-                    saldo = value;
-                }
-            }
-        }
-
-        public bool Sacar(double valor)
-        {
-            if(saldo < valor)
-            {
-                return false;
-            }
-            if(valor < 0)
-            {
-                return false;
             }
             else
             {
-                saldo = saldo - valor;
-                return true;
+                _numero_agencia = value;
             }
         }
+    
+    }
 
-        public void Depositar(double valor)
+    private string _conta;
+    public string Conta
+    {
+        get
         {
-            if (valor < 0)
+            return _conta;
+        }
+        set
+        {
+            if(value == null)
             {
                 return;
             }
-            saldo = saldo + valor;
-        }
-
-        public bool Transferir(double valor,ContaCorrente destino)
-        {
-            if(saldo < valor)
+            else
             {
-                return false;
+                _conta = value;
             }
-            if(valor <0)
+        }
+    }
+
+    private double saldo;
+    public double Saldo
+    {
+        get
+        {
+            return saldo;
+        }
+        set
+        {
+            if (value < 0)
             {
-                return false;
+                return;
             }
             else
             {
-                saldo = saldo - valor;
-                destino.saldo = destino.saldo + valor;
-                return true;
+                saldo = value;
             }
         }
+    }
 
-        public int CompareTo(ContaCorrente? outro)
+    public bool Sacar(double valor)
+    {
+        if(saldo < valor)
         {
-            if (outro==null)
-            {
-              return 1;
-            }
-            else
-            {
-                return this.Numero_agencia.CompareTo(outro.Numero_agencia);
-            }
+            return false;
         }
-
-        public ContaCorrente(int numero_agencia,string conta)
+        if(valor < 0)
         {
-            Numero_agencia = numero_agencia;
-            Conta = conta;
-            Titular = new Cliente();
-            TotalDeContasCriadas += 1;
-
+            return false;
         }
-
-        public ContaCorrente(int numero_agencia)
+        else
         {
-            Numero_agencia = numero_agencia;
-            Conta = Guid.NewGuid().ToString().Substring(0, 8);
-            Titular = new Cliente();
-            TotalDeContasCriadas += 1;
+            saldo = saldo - valor;
+            return true;
         }
+    }
 
-
-        public static int TotalDeContasCriadas { get; set; }
-
-        public override string ToString()
+    public void Depositar(double valor)
+    {
+        if (valor < 0)
         {
-
-            return $" === DADOS DA CONTA === \n" +
-                   $"Número da Conta : {this.Conta} \n" +
-                   $"Número da Agência : {this.Numero_agencia} \n" +
-                   $"Saldo da Conta: {this.Saldo} \n" +
-                   $"Titular da Conta: {this.Titular.Nome} \n" +
-                   $"CPF do Titular  : {this.Titular.Cpf} \n" +
-                   $"Profissão do Titular: { this.Titular.Profissao}\n\n";
-                   
-
+            return;
         }
+        saldo = saldo + valor;
+    }
 
+    public bool Transferir(double valor,ContaCorrente destino)
+    {
+        if(saldo < valor)
+        {
+            return false;
+        }
+        if(valor <0)
+        {
+            return false;
+        }
+        else
+        {
+            saldo = saldo - valor;
+            destino.saldo = destino.saldo + valor;
+            return true;
+        }
+    }
+
+    public int CompareTo(ContaCorrente? outro)
+    {
+        if (outro==null)
+        {
+          return 1;
+        }
+        else
+        {
+            return this.Numero_agencia.CompareTo(outro.Numero_agencia);
+        }
+    }
+
+    public ContaCorrente(int numero_agencia,string conta)
+    {
+        Numero_agencia = numero_agencia;
+        Conta = conta;
+        Titular = new Cliente();
+        TotalDeContasCriadas += 1;
 
     }
+
+    public ContaCorrente(int numero_agencia)
+    {
+        Numero_agencia = numero_agencia;
+        Conta = Guid.NewGuid().ToString().Substring(0, 8);
+        Titular = new Cliente();
+        TotalDeContasCriadas += 1;
+    }
+
+
+    public static int TotalDeContasCriadas { get; set; }
+
+    public override string ToString()
+    {
+
+        return $" === DADOS DA CONTA === \n" +
+               $"Número da Conta : {this.Conta} \n" +
+               $"Número da Agência : {this.Numero_agencia} \n" +
+               $"Saldo da Conta: {this.Saldo} \n" +
+               $"Titular da Conta: {this.Titular.Nome} \n" +
+               $"CPF do Titular  : {this.Titular.Cpf} \n" +
+               $"Profissão do Titular: { this.Titular.Profissao}\n\n";
+               
+
+    }
+
+
 }
