@@ -2,9 +2,12 @@
 using bytebank_ATENDIMENTO.bytebank.Atendimento;
 using bytebank_ATENDIMENTO.bytebank.Util;
 Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
-//new ByteBankAtendimento().AtendimentoCliente();
+new ByteBankAtendimento().AtendimentoCliente();
 
 
+// Hello world do passado :>) 
+// Finalizado em 07/04/2024
+#region Exemplos Arrays em Csharp   
 ContaCorrente conta1 = new ContaCorrente(777, "7654321-A");
 
 
@@ -50,3 +53,4 @@ void TestaArrayDeContasCorrentes()
 
 }
 //  TestaArrayDeContasCorrentes();
+#endregion 
